@@ -1,8 +1,11 @@
 /* General */
 body {
-    margin: 150px auto;
+    margin: 80px 0 0 265px;
     padding: 0;
     box-sizing: border-box;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 img {
@@ -12,12 +15,18 @@ img {
     border-radius: 15px;
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color:white;
+}
+
 /* carousel section */
 
 #carousel {
     margin: 0 auto;
-    width: 450px;
-    height: 300px;
+    width: 500px;
+    height: 450px;
     position: relative;
 }
 
@@ -28,20 +37,30 @@ img {
 }
 
 #carousel .bi {
-    color:lightslategray;
+    color:white;
     font-size: 1.5rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     padding: 2px 5px;
-    border: 1px solid lightslategray;
+    border: 2.5px solid white;
     border-radius: 10px;
 }
 
 #next {
     left: 105%;
+    transition: 0.1s;
 }
 
 #back {
     right: 105%;
+    transition: 0.1s;
+}
+
+/* Effetti al click */
+
+#next:active,
+#back:active {
+    background-color: white;
+    color:grey;
 }
