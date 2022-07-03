@@ -32,9 +32,8 @@
         
 */
 
-//porto elementi in js
-
-const img = document.querySelector('#gallery');
+// porto elementi in js
+const source = document.querySelector('#gallery');
 const back = document.getElementById('back');
 const next = document.getElementById('next');
 
@@ -43,20 +42,48 @@ const imgList = [ "img/01.jpg", "img/02.jpg","img/03.jpg", "img/04.jpg", "img/05
 
 let imgTag= '';
 // ciclo For
-for (i = 1; i <= imgList.length ; i++) {
-    imgTag += `<img src="${imgList[1]}" alt="landscape${i}">`
+for (i = 0; i < imgList.length ; i++) {
+    imgTag += `<img src="${imgList[i]}" alt="landscape${i+1}" class="d-none">`
 }
 
 // porto in Dom
-img.innerHTML = imgTag
+source.innerHTML = imgTag
 
-//creo variabile di appoggio
-//let current = img[0]
+// creo variabile di appoggio
+let img = document.querySelectorAll('#gallery img')
+let current = 0;
+console.log(current);
 
-//back.addEventListener('click', function() {
-//    for ( i > 0 ; i> img.length; i++ ) {
-//        current = classList.remove('active')
-//        img[i] = classList.add('active')
-//    }
-//})
+// rendo visibile la prima immagine
+img[current].classList.remove('d-none');
+img[current].classList.add('active');
 
+// bottone next con ritorno
+next.addEventListener('click', function() {
+    // cambio immagine e aggiusto le classi
+    img[current].classList.remove('active');
+    img[current].classList.add('d-none');
+    //porto alla prima quando sono all'ultima
+    if (img[current] === img.legth) {
+        current = 0;
+    }
+    // incremento immagine current
+    current++;
+    img[current].classList.remove('d-none');
+    img[current].classList.add('active');
+})
+
+// bottone back con ritorno
+back.addEventListener('click', function() {
+    // cambio immagine e aggiusto le classi
+    img[current].classList.remove('active');
+    img[current].classList.add('d-none');
+    // porto all'ultima quando sono all'ultima
+    if (img[current] < 0) {
+        img[current] = img.legth -1;
+    }
+    // decremento immagine current
+    current--;
+    img[current].classList.remove('d-none');
+    img[current].classList.add('active');
+})
