@@ -63,10 +63,7 @@ next.addEventListener('click', function() {
     // cambio immagine e aggiusto le classi
     img[current].classList.remove('active');
     img[current].classList.add('d-none');
-    //porto alla prima quando sono all'ultima
-    if (img[current] === img.legth) {
-        current = 0;
-    }
+    
     // incremento immagine current
     current++;
     img[current].classList.remove('d-none');
@@ -78,10 +75,7 @@ back.addEventListener('click', function() {
     // cambio immagine e aggiusto le classi
     img[current].classList.remove('active');
     img[current].classList.add('d-none');
-    // porto all'ultima quando sono all'ultima
-    if (img[current] < 0) {
-        img[current] = img.legth -1;
-    }
+    
     // decremento immagine current
     current--;
     img[current].classList.remove('d-none');
